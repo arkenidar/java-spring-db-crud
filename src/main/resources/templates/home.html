@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>home page</title>
+</head>
+
+<body>
+  <a href="/shops/new.html">aggiungi nuovo</a>
+  <hr />
+  <div th:each="shop: ${shops}">
+    <div><span th:text="${shop.nome}"></span>:</div>
+    <div>
+      <span th:text="${shop.indirizzo}"></span>,
+      <span th:text="${shop.civico}"></span>
+    </div>
+    <form action="/shops/edit.html" method="get">
+      <input type="submit" value="modifica" />
+      <input type="hidden" th:value="${shop.id}" name="id" />
+    </form>
+    <hr />
+  </div>
+</body>
+
+</html>

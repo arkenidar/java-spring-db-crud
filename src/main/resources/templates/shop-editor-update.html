@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modifica</title>
+</head>
+
+<body>
+  <h1>modifica (shop editor)</h1>
+  <form action="/shops/update.action" method="post">
+    <input th:value="${shop.nome}" name="nome" placeholder="nome" />
+    <input th:value="${shop.indirizzo}" name="indirizzo" placeholder="indirizzo" />
+    <input th:value="${shop.civico}" name="civico" placeholder="civico" type="number" />
+    <input type="submit" value="modifica" />
+    <input type="hidden" th:value="${shop.id}" name="id" />
+  </form>
+  <form action="/shops/delete.action" method="get">
+    <input type="submit" value="rimuovi" />
+    <input type="hidden" th:value="${shop.id}" name="id" />
+  </form>
+</body>
+
+</html>
