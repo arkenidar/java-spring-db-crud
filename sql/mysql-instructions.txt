@@ -1,0 +1,52 @@
+[notes] MySQL tools and setup notes 
+#### MYSQL NOTES AND INSTRUCTIONS ####
+
+### related SOFTWARE TOOLS:
+
+## (specialized, mysql only)
+
+- command-line client: "mysql" command prompt
+- https://www.mysql.com/products/workbench/
+- https://www.phpmyadmin.net/
+
+## (more generic, not only mysql)
+
+- VSCode: Database Client (SQL, but no-SQL also (Redis notably), free but commercial also)
+https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-database-client2
+
+- VSCode: SQLTools (SQL only, free)
+https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools
+
+- JAVA: Versatile Tool (free and commercial)
+https://dbeaver.io/
+
+-----------------------------------------------------------------------
+
+### related CODES/COMMANDS/INSTRUCTIONS/NOTES:
+
+# root access
+sudo mysql
+
+# note: using "127.0.0.1" may be required in place of "localhost"
+# note: password of "username" is "password" (if setup so)
+mysql -u username -p -h 127.0.0.1
+SELECT DATABASE();
+use arces_delivery;
+SELECT DATABASE();
+
+mysql -u username -p -h 127.0.0.1 arces_delivery
+SELECT DATABASE();
+
+-- create user
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost';
+FLUSH PRIVILEGES;
+
+-- restart mysql
+sudo systemctl restart mysql
+
+-- create database
+create database arces_delivery;
+
+-- create tables
+---- see "mysql.sql" file
