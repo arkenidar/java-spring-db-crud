@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shops-rest-ui</title>
+</head>
+
+<body>
+
+    <h1>shops-rest-ui</h1>
+    <h2>HTML UI for REST</h2>
+    <h3>CRUD for shops in REST way</h3>
+    <hr>
+    <!-- section: CRUD for shops in REST way -->
+    <script src="web_application.js"></script>
+
+    <hr>
+
+    <!-- create a shop -->
+    <form class="shopCreate">
+        <input name="nome" placeholder="nome" />
+        <input name="indirizzo" placeholder="indirizzo" />
+        <input name="civico" placeholder="civico" type="number" />
+        <input type="submit" value="crea" />
+    </form>
+
+    <hr>
+
+    <!-- update a shop -->
+    <form class="shopUpdate">
+        <input name="nome" placeholder="nome" />
+        <input name="indirizzo" placeholder="indirizzo" />
+        <input name="civico" placeholder="civico" type="number" />
+        <input type="submit" value="modifica" />
+        <input type="hidden" name="id" />
+    </form>
+    <!-- delete a shop -->
+    <form class="shopDelete">
+        <input type="submit" value="rimuovi" />
+        <input type="hidden" name="id" />
+    </form>
+
+    <hr>
+
+    <!-- fetch all shops -->
+    <button class="shopReadAll">carica elenco</button>
+
+    <hr>
+
+    <!-- section: list of shops -->
+    <h2>elenco negozi</h2>
+    <!-- list of shops -->
+    <ul id="shopList"></ul>
+
+    <hr>
+
+</body>
+
+</html>

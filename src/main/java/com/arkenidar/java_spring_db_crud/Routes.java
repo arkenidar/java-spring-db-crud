@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Routes {
@@ -19,6 +20,13 @@ public class Routes {
     private JdbcTemplate jdbcTemplate;
 
     @GetMapping("/")
+    public ModelAndView userInterface() {
+        // HTML UI for REST
+        ModelAndView modelAndView = new ModelAndView("shops-rest-ui");
+        return modelAndView;
+    }
+
+    @GetMapping("/shops/all.html")
     public String homepage(Model model) {
         model.addAttribute("shops", allShops());
         return "home";
