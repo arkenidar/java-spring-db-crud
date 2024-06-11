@@ -26,7 +26,7 @@ public class Routes {
         return modelAndView;
     }
 
-    @GetMapping("/shops/all.html")
+    @GetMapping("/shops/")
     public String homepage(Model model) {
         model.addAttribute("shops", allShops());
         return "home";
@@ -41,7 +41,7 @@ public class Routes {
     @GetMapping("/shops/delete.action")
     public String deleteShop(@RequestParam long id) {
         jdbcTemplate.update("DELETE FROM shops WHERE (id = ?);", id);
-        return "redirect:/";
+        return "redirect:/shops/";
     }
 
     @GetMapping("/shops/new.html")
@@ -54,7 +54,7 @@ public class Routes {
         String sql = "INSERT INTO shops (nome, indirizzo, civico) VALUES (?, ?, ?);";
         jdbcTemplate.update(sql,
                 post.get("nome"), post.get("indirizzo"), post.get("civico"));
-        return "redirect:/";
+        return "redirect:/shops/";
     }
 
     @GetMapping("/shops/edit.html")
@@ -69,7 +69,7 @@ public class Routes {
         Integer id = Integer.parseInt(post.get("id"));
         jdbcTemplate.update("UPDATE shops SET nome =?, indirizzo =?, civico =? WHERE (id =?);",
                 post.get("nome"), post.get("indirizzo"), post.get("civico"), id);
-        return "redirect:/";
+        return "redirect:/shops/";
     }
 
 }
